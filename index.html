@@ -10,10 +10,13 @@
     <main class="container">
       <header class="topbar">
         <div>
-          <h1>Tasks App Manager</h1>
-          <p>Track ticket progress and prioritize by timeline health.</p>
+          <h1>Addiction Tasks Manager</h1>
+          <p>Brand-aligned task visibility with timeline prioritization.</p>
         </div>
-        <span class="chip">Live Prioritization</span>
+        <div class="header-actions">
+          <span class="chip">Addiction Workflow</span>
+          <button id="openCreateModal">+ New Ticket</button>
+        </div>
       </header>
 
       <section class="dashboard">
@@ -24,32 +27,15 @@
         <article class="card delayed"><h3>Delayed</h3><p id="delayedCount">0</p></article>
       </section>
 
-      <section class="form-section">
-        <h2 id="formTitle">Create Ticket</h2>
-        <form id="ticketForm">
-          <input type="hidden" id="ticketId" />
-          <div class="grid">
-            <label>Task Description<input id="taskDescription" required /></label>
-            <label>Brand<input id="brand" required /></label>
-            <label>Market<input id="market" required /></label>
-            <label>Requestor<input id="requestor" required /></label>
-            <label>Assigned<input id="assigned" required /></label>
-            <label>Date Mention<input id="dateMention" type="date" required /></label>
-            <label>Timeline to Finish<input id="timelineToFinish" type="date" required /></label>
-            <label>Status
-              <select id="status" required>
-                <option value="Pending">Pending</option>
-                <option value="Done">Done</option>
-              </select>
-            </label>
-            <label>Comments/Notes<textarea id="commentsNotes" rows="2"></textarea></label>
-            <label>Latest Update<textarea id="latestUpdate" rows="2"></textarea></label>
-          </div>
-          <div class="actions">
-            <button type="submit" id="saveBtn">Save Ticket</button>
-            <button type="button" id="cancelEdit" class="secondary hidden">Cancel Edit</button>
-          </div>
-        </form>
+      <section class="chart-section">
+        <article class="chart-card">
+          <h2>Status Breakdown</h2>
+          <canvas id="statusChart" width="420" height="220"></canvas>
+        </article>
+        <article class="chart-card">
+          <h2>Priority Breakdown</h2>
+          <canvas id="priorityChart" width="420" height="220"></canvas>
+        </article>
       </section>
 
       <section class="table-section">
@@ -68,6 +54,39 @@
         </div>
       </section>
     </main>
+
+    <dialog id="ticketModal">
+      <form id="ticketForm" method="dialog">
+        <div class="modal-head">
+          <h2 id="formTitle">Create Ticket</h2>
+          <button id="closeModal" type="button" class="icon-btn">✕</button>
+        </div>
+        <input type="hidden" id="ticketId" />
+        <div class="grid">
+          <label>Task Description<input id="taskDescription" required /></label>
+          <label>Brand<input id="brand" required /></label>
+          <label>Market<input id="market" required /></label>
+          <label>Requestor<input id="requestor" required /></label>
+          <label>Assigned<input id="assigned" required /></label>
+          <label>Date Mention<input id="dateMention" type="date" required /></label>
+          <label>Timeline to Finish<input id="timelineToFinish" type="date" required /></label>
+          <label>Status
+            <select id="status" required>
+              <option value="Not Started">Not Started</option>
+              <option value="Pending">Pending</option>
+              <option value="On-hold">On-hold</option>
+              <option value="Done">Done</option>
+            </select>
+          </label>
+          <label>Comments/Notes<textarea id="commentsNotes" rows="2"></textarea></label>
+          <label>Latest Update<textarea id="latestUpdate" rows="2"></textarea></label>
+        </div>
+        <div class="actions">
+          <button type="submit" id="saveBtn">Save Ticket</button>
+          <button type="button" id="cancelEdit" class="secondary hidden">Cancel Edit</button>
+        </div>
+      </form>
+    </dialog>
     <script src="app.js"></script>
   </body>
 </html>
