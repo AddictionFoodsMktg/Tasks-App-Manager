@@ -8,28 +8,20 @@
   </head>
   <body>
     <main class="container">
-      <header>
-        <h1>Tasks App Manager</h1>
-        <p>Track ticket progress across brands and markets.</p>
+      <header class="topbar">
+        <div>
+          <h1>Tasks App Manager</h1>
+          <p>Track ticket progress and prioritize by timeline health.</p>
+        </div>
+        <span class="chip">Live Prioritization</span>
       </header>
 
       <section class="dashboard">
-        <article class="card">
-          <h3>Pending</h3>
-          <p id="pendingCount">0</p>
-        </article>
-        <article class="card">
-          <h3>Total Tasks</h3>
-          <p id="totalCount">0</p>
-        </article>
-        <article class="card">
-          <h3>Finished</h3>
-          <p id="finishedCount">0</p>
-        </article>
-        <article class="card">
-          <h3>Fixed Time</h3>
-          <p id="fixedTime">0 days</p>
-        </article>
+        <article class="card pending"><h3>Pending</h3><p id="pendingCount">0</p></article>
+        <article class="card"><h3>Total Tasks</h3><p id="totalCount">0</p></article>
+        <article class="card done"><h3>Finished</h3><p id="finishedCount">0</p></article>
+        <article class="card"><h3>Fixed Time</h3><p id="fixedTime">0 days</p></article>
+        <article class="card delayed"><h3>Delayed</h3><p id="delayedCount">0</p></article>
       </section>
 
       <section class="form-section">
@@ -66,17 +58,9 @@
           <table>
             <thead>
               <tr>
-                <th>Task Description</th>
-                <th>Brand</th>
-                <th>Market</th>
-                <th>Requestor</th>
-                <th>Assigned</th>
-                <th>Date Mention</th>
-                <th>Timeline to Finish</th>
-                <th>Status</th>
-                <th>Comments/Notes</th>
-                <th>Latest Update</th>
-                <th>Actions</th>
+                <th>Task Description</th><th>Brand</th><th>Market</th><th>Requestor</th><th>Assigned</th>
+                <th>Date Mention</th><th>Timeline to Finish</th><th>Status</th><th>Priority</th>
+                <th>Comments/Notes</th><th>Latest Update</th><th>Actions</th>
               </tr>
             </thead>
             <tbody id="ticketsBody"></tbody>
@@ -84,7 +68,6 @@
         </div>
       </section>
     </main>
-
     <script src="app.js"></script>
   </body>
 </html>
